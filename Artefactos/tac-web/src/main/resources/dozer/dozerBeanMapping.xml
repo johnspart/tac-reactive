@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping>
+		<class-a>co.s4n.reference.infrastructure.dao.empleado.EmpleadoRecord</class-a>
+		<class-b>co.s4n.reference.empleados.Empleado$Builder</class-b>
+		<field>
+			<a>idempleado</a>
+			<b set-method="setIdempleado">idempleado</b>
+		</field>
+		<field>
+			<a>nombre</a>
+			<b set-method="setNombre">nombre</b>
+		</field>
+		<field>
+			<a>edad</a>
+			<b set-method="setEdad">edad</b>
+		</field>
+	</mapping>
+
+</mappings> 
