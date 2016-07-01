@@ -1,0 +1,136 @@
+@import "variables.less";
+/**
+ * Sidebar
+ */
+#sidebar-wrapper {
+  background: @sidebarBaseColor;
+}
+#page-wrapper ul.sidebar .sidebar-title.separator,
+.sidebar-footer,
+ul.sidebar .sidebar-list a:hover,
+ul.sidebar .sidebar-main a {
+  /* Sidebar header and footer color */
+  background: @sidebarHeaderColor;
+}
+ul.sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-indent: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  li {
+    a {
+      color: #fff;
+      display: block;
+      float: left;
+      text-decoration: none;
+      width: 250px;
+    }
+  }
+  .sidebar-main {
+    height: 65px;
+    a {
+      font-size: 18px;
+      line-height: 60px;
+    }
+    a:hover {
+      cursor: pointer;
+    }
+    .menu-icon {
+      float: right;
+      font-size: 18px;
+      padding-right: 28px;
+      line-height: 60px;
+    }
+  }
+  .sidebar-title {
+    color: @sidebarTitleColor;
+    font-size: 12px;
+    height: 35px;
+    line-height: 40px;
+    text-transform: uppercase;
+    transition: all 0.6s ease 0s;
+  }
+  .sidebar-list {
+    height: 40px;
+    a {
+      text-indent: 25px;
+      font-size: 15px;
+      color: #b2bfdc;
+      line-height: 40px;
+    }
+    a:hover {
+      color: #fff;
+      border-left: 3px solid @sidebarMenuItemHover;
+      text-indent: 22px;
+      .menu-icon {
+        text-indent: 25px;
+      }
+    }
+    .menu-icon {
+      float: right;
+      padding-right: 29px;
+      line-height: 40px;
+      width: 70px;
+    }
+  }
+}
+.sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  transition: all 0.6s ease 0s;
+  text-align: center;
+  div {
+    a {
+      color: #b2bfdc;
+      font-size: 12px;
+      line-height: 43px;
+    }
+    a:hover {
+      color: #ffffff;
+      text-decoration: none;
+    }
+  }
+}
+@media screen and (min-width: 750px) {
+  .cerrar-menu {
+    display: none;
+  }
+}
+@media screen and (max-width: 750px) {
+  #page-wrapper {
+    padding-left: 0;
+    height: 100%;
+  }
+  #sidebar-wrapper {
+    margin-left: -190px;
+    left: -60px;
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    z-index: 999;
+  }
+  #sidebar-wrapper.mostrar {
+    margin-left: 0;
+    left: 0;
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    z-index: 999;
+  }
+}
+.selectMenuItem {
+  color: #fff;
+  border-left: 3px solid;
+  text-indent: 22px;
+  .menu-icon {
+    text-indent: 25px;
+  }
+}

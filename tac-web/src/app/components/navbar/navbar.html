@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- Header Bar -->
+<div class="row header">
+  <div class="col-xs-12">
+    <div class="user pull-right">
+      <div class="item dropdown" uib-dropdown>
+        <a class="dropdown-toggle" data-toggle="dropdown" uib-dropdown-toggle>
+          <img src="assets/images/user.png">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu>
+          <li class="dropdown-header">
+            Joe Bloggs
+          </li>
+          <li class="divider"></li>
+          <li class="link">
+            <a href="#">
+              Profile
+            </a>
+          </li>
+          <li class="link">
+            <a href="#">
+              Menu Item
+            </a>
+          </li>
+          <li class="link">
+            <a href="#">
+              Menu Item
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li class="link" ng-show="$root.authenticated">
+            <a a href="" ng-click="$root.logout()">
+              {{$root.labels.salir}}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="item dropdown" uib-dropdown>
+        <a class="dropdown-toggle" title="{{$root.labels.notificaciones}}" uib-dropdown-toggle>
+          <i class="glyphicon glyphicon-bell"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="meta">
+      <div class="page">
+        <a class="menu-icon glyphicon glyphicon-menu-hamburger" href="" ng-click="vm.abrirMenu()" title="{{$root.labels.abrMenu}}"></a>
+        {{$root.labels.tacWeb}}
+      </div>
+      <div class="breadcrumb-links">
+        {{$root.ubicacion}}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Header Bar -->

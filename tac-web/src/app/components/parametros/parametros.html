@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<div class="row">
+  <div class="col-lg-12">
+    <div>
+      <table st-table="rowCollection" class="table table-striped">
+        <thead>
+          <tr>
+            <th>{{$root.labels.codigo}}</th>
+            <th>{{$root.labels.valor}}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="row in prm.parametros">
+            <td>{{row.codigo}}</td>
+            <td>{{row.valor}}</td>
+            <td>
+              <a class="glyphicon glyphicon-edit" aria-hidden="true" ng-click="prm.edit(row)" href="" title="{{$root.labels.editar}}"></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

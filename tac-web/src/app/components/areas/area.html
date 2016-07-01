@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<div class="row">
+  <div class="col-lg-12">
+    <form name="areaForm" class="form-signin" ng-submit="arCtrl.login(areaForm)" novalidate>
+      <md-input-container id="codigo-input">
+        <input required name="codigo" id="codigo" ng-model="arCtrl.area.codigo" class="form-control" placeholder="{{$root.labels.codigo}}" autofocus>
+        <div ng-messages="areaForm.codigo.$error" ng-show="areaForm.$dirty">
+          <div ng-message="required">{{$root.labels.cmpReq}}</div>
+        </div>
+      </md-input-container>
+      <md-input-container id="nombre-input">
+        <input required id="nombre" name="nombre" ng-model="arCtrl.area.nombre" class="form-control" placeholder="{{$root.labels.nombre}}">
+        <div ng-messages="areaForm.nombre.$error" ng-show="areaForm.$dirty">
+          <div ng-message="required">{{$root.labels.cmpReq}}</div>
+        </div>
+      </md-input-container>
+      <md-input-container id="usuario-input">
+        <select required id="usuario" name="usuario" ng-model="arCtrl.area.usuario" class="form-control" placeholder="{{$root.labels.user}}"/>
+        <div ng-messages="areaForm.usuario.$error" ng-show="areaForm.$dirty">
+          <div ng-message="required">{{$root.labels.cmpReq}}</div>
+        </div>
+      </md-input-container>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+        {{$root.labels.acceder}}</button>
+      <span class="clearfix"></span>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- Sidebar -->
+<div id="sidebar-wrapper" ng-class="$root.mostrar">
+  <ul class="sidebar">
+    <li class="cerrar-menu sidebar-list">
+      <a class="menu-icon glyphicon glyphicon-indent-right" href="" ng-click="vm.cerrarMenu()" title="{{$root.labels.crrMenu}}"></a>
+    </li>
+    <li class="sidebar-main">
+      <a href="#">
+        {{$root.labels.inicio}}
+        <span class="menu-icon glyphicon glyphicon-home"></span>
+      </a>
+    </li>
+    <li class="sidebar-title">
+      <span>{{$root.labels.menu}}</span>
+    </li>
+    <li class="sidebar-list" ng-repeat="item in vm.menuItems" ng-class="vm.selectMenuItem(item.sref)">
+      <a ui-sref="{{item.sref}}">{{item.label}}
+        <span class="{{item.iconClass}}"></span>
+      </a>
+    </li>
+  </ul>
+  <div class="sidebar-footer" >
+
+  </div>
+</div>
+<!-- End Sidebar -->
