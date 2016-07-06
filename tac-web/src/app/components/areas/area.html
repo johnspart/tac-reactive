@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <div class="row">
-  <div class="col-lg-12">
-    <form name="areaForm" class="form-signin" ng-submit="arCtrl.login(areaForm)" novalidate>
+  <div class="col-lg-6">
+    <form name="areaForm" class="form-horizontal" ng-submit="arCtrl.login(areaForm)" novalidate>
       <md-input-container id="codigo-input">
         <input required name="codigo" id="codigo" ng-model="arCtrl.area.codigo" class="form-control" placeholder="{{$root.labels.codigo}}" autofocus>
         <div ng-messages="areaForm.codigo.$error" ng-show="areaForm.$dirty">
