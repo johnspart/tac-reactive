@@ -7,13 +7,14 @@ import javax.inject.Inject;
 
 import co.com.tac.dto.Area;
 import co.com.tac.repository.AreaRepository;
+import rx.Observable;
 
 @Singleton
 public class AreaService {
 	@Inject
 	private AreaRepository areaRepository;
 
-	public List<Area> obtenerAreas() {
+	public Observable<List<Area>> obtenerAreas() {
 		return this.areaRepository.getAreas();
 	}
 

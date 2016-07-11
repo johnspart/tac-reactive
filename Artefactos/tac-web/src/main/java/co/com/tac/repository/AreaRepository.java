@@ -16,6 +16,7 @@ import org.hibernate.criterion.Restrictions;
 import co.com.tac.dto.Area;
 import co.com.tac.orm.TArea;
 import co.com.tac.repository.utils.GenericRepository;
+import rx.Observable;
 
 /**
  * @author john
@@ -27,9 +28,11 @@ public class AreaRepository extends GenericRepository {
 	private EntityManager entityManager;
 
 	@SuppressWarnings("unchecked")
-	public List<Area> getAreas() {
-		return DetachedCriteria.forClass(TArea.class, "ARE").setProjection(TArea.tAreaToArea("ARE"))
-				.getExecutableCriteria(this.entityManager.unwrap(Session.class)).list();
+	public Observable<List<Area>> getAreas() {
+		Observable<List<Area>> now = Observable
+				.just(DetachedCriteria.forClass(TArea.class, "ARE").setProjection(TArea.tAreaToArea("ARE"))
+						.getExecutableCriteria(this.entityManager.unwrap(Session.class)).list());
+		return now;
 	}
 
 	public void guardarArea(Area area) {

@@ -1,3 +1,16 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = 'Sonatype Nexus Snapshots'
+            url = 'https://oss.sonatype.org/content/repositories/snapshots/'
+        }
+    }
+    dependencies {
+        classpath 'net.wasdev.wlp.gradle.plugins:liberty-gradle-plugin:1.1-SNAPSHOT'
+    }
+}
+
 /* Plugins */
 apply plugin: 'java'
 apply plugin: 'idea'
@@ -5,6 +18,7 @@ apply plugin: 'eclipse'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'war'
 apply plugin: "jacoco"
+apply plugin: 'liberty'
 
 /* Project data */
 group='co.s4n.reference.wlp'
@@ -51,6 +65,7 @@ dependencies {
     compile 'javax.enterprise.concurrent:javax.enterprise.concurrent-api:1.0'
     compile 'javax.ws.rs:javax.ws.rs-api:2.0.1'
     compile 'javax:javaee-api:7.0'
+	compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.3'
     compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.2.1.Final'
     compile 'javax.validation:validation-api:1.1.0.Final'
     compile 'com.fasterxml.jackson.core:jackson-core:2.7.3'
@@ -88,3 +103,12 @@ task localDeploy(type: Copy) {
     into "${deployPath}"
 }
 localDeploy.dependsOn war
+
+liberty {
+      installDir = '/home/john/develop/servers/wlp'
+      serverName = 'nuevainstancia'
+
+      deploy {
+          file = '/home/john/develop/workspaces/java/tac3/git/Artefactos/tac-web/build/libs/tac-web-0.1.war'
+      }
+  }

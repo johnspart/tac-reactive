@@ -1,7 +1,6 @@
 package co.com.tac.rest;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -29,21 +28,14 @@ public class AreasRest {
 	private AreaService areaService;
 
 	@GET
-	@Path("/report")
+	@Path("/getAreas")
 	@Produces(MediaType.APPLICATION_JSON)
-	public void report(@Suspended final AsyncResponse ar) {
-		/* Asehdfkjsfsdh */
-		ArrayList<String> report = new ArrayList<String>();
-		report.add("Report 01");
-		report.add("Report 02");
-		report.add("Report 03");
-		report.add("Report" + Math.random());
-		Observable<Collection<String>> list = Observable.just(report);
-		String servletThread = Thread.currentThread().getName();
-		list.subscribeOn(Schedulers.computation()).subscribe((values) -> {
-			Response resp = Response.ok(values).build();
-			ar.resume(resp);
-		});
+	public void getAreas(@Suspended final AsyncResponse ar) {
+		Observable<List<Area>> list = areaService.obtenerAreas();
+        list.subscribeOn(Schedulers.computation()).subscribe((values) -> {
+            Response resp = Response.ok(values).build();
+            ar.resume(resp);
+        });
 	}
 
 	@POST

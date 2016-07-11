@@ -3,7 +3,9 @@ package co.com.tac.orm;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
+@Embeddable
 public class TAsignacionPK implements Serializable {
 	/**
 	 * 
