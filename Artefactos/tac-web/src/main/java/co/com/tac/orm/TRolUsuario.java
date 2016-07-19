@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
 import co.com.tac.constant.CargoUsuario;
 
 @Entity
-@Table(name = "TUsuario")
+@Table(name = "tusuario")
 public class TRolUsuario implements Serializable {
 
 	/**

@@ -10,6 +10,7 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+import javax.enterprise.util.Nonbinding;
 import javax.interceptor.InterceptorBinding;
 
 /**
@@ -21,4 +22,9 @@ import javax.interceptor.InterceptorBinding;
 @Retention(RUNTIME)
 @Target({ METHOD, TYPE })
 public @interface TxInterceptorBinding {
+	@Nonbinding
+	boolean readOnly() default false;
+
+	@Nonbinding
+	Class<? extends Throwable>[] noRollbackFor() default {};
 }

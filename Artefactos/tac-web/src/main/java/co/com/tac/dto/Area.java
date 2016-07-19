@@ -21,6 +21,19 @@ public class Area implements Serializable {
 	@XmlElement
 	private String usuario;
 
+	@Override
+	public String toString() {
+		return "Area []";
+	}
+
+	public Area(String codigo, String nombre, Boolean estado, String usuario) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.estado = estado;
+		this.usuario = usuario;
+	}
+
 	public String getCodigo() {
 		return codigo;
 	}

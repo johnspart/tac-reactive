@@ -14,13 +14,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.criterion.ProjectionList;
-import org.hibernate.criterion.Projections;
-
 import co.com.tac.dto.Area;
 
 @Entity
-@Table(name = "TArea")
+@Table(name = "tarea")
 public class TArea implements Serializable {
 	/**
 	 * 
@@ -100,14 +97,5 @@ public class TArea implements Serializable {
 
 	public void settEmpleados(Set<TEmpleado> tEmpleados) {
 		this.tEmpleados = tEmpleados;
-	}
-
-	public static ProjectionList tAreaToArea(String prefix) {
-		ProjectionList pjList = Projections.projectionList();
-		pjList.add(Projections.property(prefix + ".areArea"), "codigo");
-		pjList.add(Projections.property(prefix + ".areNombre"), "nombre");
-		pjList.add(Projections.property(prefix + ".areEstado"), "estado");
-		pjList.add(Projections.property(prefix + ".tRolUsuario.usrUsuario"), "usuario");
-		return pjList;
 	}
 }

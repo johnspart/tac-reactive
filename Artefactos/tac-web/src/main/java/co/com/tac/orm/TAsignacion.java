@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TAsignacion")
+@Table(name = "tasignacion")
 public class TAsignacion implements Serializable {
 	/**
 	 * 

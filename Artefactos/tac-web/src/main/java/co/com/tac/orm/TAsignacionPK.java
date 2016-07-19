@@ -72,4 +72,59 @@ public class TAsignacionPK implements Serializable {
 	public void setAsgAnio(Short asgAnio) {
 		this.asgAnio = asgAnio;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((asgAnio == null) ? 0 : asgAnio.hashCode());
+		result = prime * result + ((asgArea == null) ? 0 : asgArea.hashCode());
+		result = prime * result + ((asgCentroCosto == null) ? 0 : asgCentroCosto.hashCode());
+		result = prime * result + ((asgCliente == null) ? 0 : asgCliente.hashCode());
+		result = prime * result + ((asgEmpleado == null) ? 0 : asgEmpleado.hashCode());
+		result = prime * result + ((asgMes == null) ? 0 : asgMes.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TAsignacionPK other = (TAsignacionPK) obj;
+		if (asgAnio == null) {
+			if (other.asgAnio != null)
+				return false;
+		} else if (!asgAnio.equals(other.asgAnio))
+			return false;
+		if (asgArea == null) {
+			if (other.asgArea != null)
+				return false;
+		} else if (!asgArea.equals(other.asgArea))
+			return false;
+		if (asgCentroCosto == null) {
+			if (other.asgCentroCosto != null)
+				return false;
+		} else if (!asgCentroCosto.equals(other.asgCentroCosto))
+			return false;
+		if (asgCliente == null) {
+			if (other.asgCliente != null)
+				return false;
+		} else if (!asgCliente.equals(other.asgCliente))
+			return false;
+		if (asgEmpleado == null) {
+			if (other.asgEmpleado != null)
+				return false;
+		} else if (!asgEmpleado.equals(other.asgEmpleado))
+			return false;
+		if (asgMes == null) {
+			if (other.asgMes != null)
+				return false;
+		} else if (!asgMes.equals(other.asgMes))
+			return false;
+		return true;
+	}
 }

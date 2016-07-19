@@ -39,4 +39,41 @@ public class TCentroCostoPK implements Serializable {
 		this.ccoArea = ccoArea;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ccoArea == null) ? 0 : ccoArea.hashCode());
+		result = prime * result + ((ccoCentroCosto == null) ? 0 : ccoCentroCosto.hashCode());
+		result = prime * result + ((ccoCliente == null) ? 0 : ccoCliente.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TCentroCostoPK other = (TCentroCostoPK) obj;
+		if (ccoArea == null) {
+			if (other.ccoArea != null)
+				return false;
+		} else if (!ccoArea.equals(other.ccoArea))
+			return false;
+		if (ccoCentroCosto == null) {
+			if (other.ccoCentroCosto != null)
+				return false;
+		} else if (!ccoCentroCosto.equals(other.ccoCentroCosto))
+			return false;
+		if (ccoCliente == null) {
+			if (other.ccoCliente != null)
+				return false;
+		} else if (!ccoCliente.equals(other.ccoCliente))
+			return false;
+		return true;
+	}
+
 }

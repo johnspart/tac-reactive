@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-@Table(name = "TEmpFavoritos")
+@Table(name = "tempfavoritos")
 public class TEmpFavoritos implements Serializable {
 	/**
 	 * 

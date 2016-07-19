@@ -61,20 +61,24 @@ repositories {
 
 dependencies {
     // Base
-    compile 'javax.servlet:javax.servlet-api:3.1.0'
-    compile 'javax.enterprise.concurrent:javax.enterprise.concurrent-api:1.0'
-    compile 'javax.ws.rs:javax.ws.rs-api:2.0.1'
+    //compile 'javax.servlet:javax.servlet-api:3.1.0'
+    //compile 'javax.enterprise.concurrent:javax.enterprise.concurrent-api:1.0'
+    //compile 'javax.ws.rs:javax.ws.rs-api:2.0.1'
     compile 'javax:javaee-api:7.0'
 	compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.3'
-    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.2.1.Final'
-    compile 'javax.validation:validation-api:1.1.0.Final'
-    compile 'com.fasterxml.jackson.core:jackson-core:2.7.3'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.7.3'
+	
+	compile group: 'dom4j', name: 'dom4j', version: '1.6.1'	
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.1.Final'
+    //compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.1.0.Final'
+    //compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.0.Final'
+    //compile 'javax.validation:validation-api:1.1.0.Final'
+    //compile 'com.fasterxml.jackson.core:jackson-core:2.7.3'
+    //compile 'com.fasterxml.jackson.core:jackson-databind:2.7.3'
     // Specific
-    compile group: 'com.unboundid', name: 'unboundid-ldapsdk', version: '3.1.1'
-    compile 'co.com.proteccion.advance:ms-base:0.1-SNAPSHOT'
+    //compile group: 'com.unboundid', name: 'unboundid-ldapsdk', version: '3.1.1'
+   // compile 'co.com.proteccion.advance:ms-base:0.1-SNAPSHOT'
     compile 'io.reactivex:rxjava:1.1.6'
-    compile 'io.javaslang:javaslang:2.0.2'
+    //compile 'io.javaslang:javaslang:2.0.2'
     // Testing
     testCompile 'junit:junit:4.12'
 }
@@ -106,9 +110,10 @@ localDeploy.dependsOn war
 
 liberty {
       installDir = '/home/john/develop/servers/wlp'
-      serverName = 'nuevainstancia'
+      serverName = 'defaultServer'
 
       deploy {
           file = '/home/john/develop/workspaces/java/tac3/git/Artefactos/tac-web/build/libs/tac-web-0.1.war'
       }
   }
+  

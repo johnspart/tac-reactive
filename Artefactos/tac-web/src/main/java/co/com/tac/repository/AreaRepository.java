@@ -5,33 +5,32 @@ package co.com.tac.repository;
 
 import java.util.List;
 
-import javax.ejb.Singleton;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
-import org.hibernate.Session;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Restrictions;
-
+import co.com.tac.cdi.TxInterceptorBinding;
 import co.com.tac.dto.Area;
+import co.com.tac.hibernate.HibernateUtil;
 import co.com.tac.orm.TArea;
-import co.com.tac.repository.utils.GenericRepository;
 import rx.Observable;
 
 /**
  * @author john
  *
  */
-@Singleton
-public class AreaRepository extends GenericRepository {
-	@PersistenceContext
-	private EntityManager entityManager;
+@Stateless
+public class AreaRepository {
 
+	private EntityManager entityManager = HibernateUtil.getEntityManagerFactory().createEntityManager();
+
+	@TxInterceptorBinding(readOnly = true)
 	@SuppressWarnings("unchecked")
 	public Observable<List<Area>> getAreas() {
-		Observable<List<Area>> now = Observable
-				.just(DetachedCriteria.forClass(TArea.class, "ARE").setProjection(TArea.tAreaToArea("ARE"))
-						.getExecutableCriteria(this.entityManager.unwrap(Session.class)).list());
+		List<Area> areas = entityManager
+				.createQuery(
+						"SELECT new co.com.tac.dto.Area(areArea, areNombre, areEstado, tRolUsuario.usrUsuario) FROM TArea")
+				.getResultList();
+		Observable<List<Area>> now = Observable.just(areas);
 		return now;
 	}
 
@@ -41,12 +40,6 @@ public class AreaRepository extends GenericRepository {
 
 	public void actualizarArea(Area area) {
 		this.entityManager.merge(new TArea(area));
-	}
-
-	public boolean existArea(Area area) {
-		DetachedCriteria dCriteria = DetachedCriteria.forClass(TArea.class, "ARE");
-		dCriteria.add(Restrictions.eq("ARE.", area.getCodigo()));
-		return super.findDetachedCriteriaExist(this.entityManager, dCriteria);
 	}
 
 }
